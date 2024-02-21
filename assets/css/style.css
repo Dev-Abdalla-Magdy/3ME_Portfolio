@@ -148,6 +148,10 @@ a {
           color: var(--white-color);
           font-size: 1rem;
           font-weight: bold;
+          width: 2rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           transition: var(--main-transition);
         }
         .btn:hover {
@@ -216,6 +220,7 @@ a {
         .links {
           display: flex;
           flex-direction: column;
+          width: 100%;
 
           .link {
             position: relative;
@@ -225,6 +230,7 @@ a {
             font-size: 1.2rem;
             cursor: pointer;
             overflow: hidden;
+            width: 100%;
             transition: var(--main-transition);
 
             a {
@@ -241,8 +247,8 @@ a {
 
         .close {
           position: absolute;
-          top: 5%;
-          right: 5%;
+          top: 1rem;
+          right: 1rem;
           font-size: 2rem;
           color: var(--white-color);
           cursor: pointer;
@@ -266,3 +272,9 @@ a {
     }
   }
 }
+
+/*
+1) icons on the right in small screen
+2) colors and rooted it final edit
+3) logo and icon 3ME final edit
+*/
