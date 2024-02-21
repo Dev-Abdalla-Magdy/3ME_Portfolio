@@ -57,13 +57,14 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0 1rem;
 
     .logo_container {
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100%;
-      padding: 0 2rem;
+      padding: 0 1rem;
 
       .logo_link {
         transition: var(--main-transition);
@@ -100,10 +101,13 @@ a {
             position: relative;
             display: flex;
             align-items: center;
-            padding: 1rem;
-            font-size: 1.2rem;
+            padding: 0 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.1rem;
             cursor: pointer;
             overflow: hidden;
+            text-align: center;
             transition: var(--main-transition);
 
             a {
@@ -117,12 +121,39 @@ a {
             background-color: var(--bg-color-alt);
           }
           .link:hover > a {
-            color: var(--black-color);
+            color: var(--main-color);
           }
         }
+        .close {
+          display: none;
+        }
       }
-      .menu_container.hide {
+      .menu_container {
         display: none;
+      }
+      .icons_container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 1rem;
+        gap: 1rem;
+
+        .btn {
+          padding: 0.4rem;
+          background-color: var(--main-color);
+          border-radius: 0.25rem;
+          border: 0.125rem solid var(--bg-color);
+          cursor: pointer;
+          transition: var(--main-transition);
+          color: var(--white-color);
+          font-size: 1rem;
+          font-weight: bold;
+          transition: var(--main-transition);
+        }
+        .btn:hover {
+          background-color: var(--bg-color);
+          color: var(--main-color);
+        }
       }
     }
 
@@ -167,30 +198,25 @@ a {
           background-color: var(--bg-color);
         }
       }
-      .links_container.active {
-        position: absolute;
+      .links_container {
+        position: fixed;
         background-color: var(--main-color);
-        width: 100%;
-        top: 105%;
+        width: 85%;
+        top: 0;
         transition: var(--main-transition);
         text-align: center;
         border-radius: 0.5rem;
         box-shadow: 0 0 0.25rem var(--box-shadow-color);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        right: -100%;
 
         .links {
           display: flex;
           flex-direction: column;
 
-          .link::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 0.25rem;
-            background-color: var(--white-color);
-            bottom: 0;
-            left: -100%;
-            transition: var(--main-transition);
-          }
           .link {
             position: relative;
             display: flex;
@@ -205,39 +231,38 @@ a {
               margin: 0 auto;
             }
           }
-          .link:hover::before {
-            left: -0%;
-          }
-          .link:hover {
-            background-color: var(--bg-color-alt);
+          .link > a {
+            transition: var(--main-transition);
           }
           .link:hover > a {
-            color: var(--black-color);
+            color: var(--bg-color);
           }
         }
+
+        .close {
+          position: absolute;
+          top: 5%;
+          right: 5%;
+          font-size: 2rem;
+          color: var(--white-color);
+          cursor: pointer;
+          transition: var(--main-transition);
+        }
+        .close:hover {
+          color: var(--bg-color);
+        }
       }
-      .links_container.hide {
+      .links_container.active {
+        right: 0%;
+      }
+      .icons_container {
         display: none;
       }
     }
   }
+  @media (max-width: 767px) {
+    .container {
+      margin: 0;
+    }
+  }
 }
-
-/* 
-// side bar left style //
-  position: fixed;
-  background-color: var(--main-color);
-  width: 85%;
-  top: 0;
-  transition: var(--main-transition);
-  text-align: center;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 0.25rem var(--box-shadow-color);
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  right: 0;
-
-
-*/
