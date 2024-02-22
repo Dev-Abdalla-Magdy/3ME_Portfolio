@@ -6,22 +6,28 @@ const lang = document.querySelector("#lang");
 const landingSlider = document.querySelector(".slider");
 const landingImages = [
   {
-    name: "url(/assets/files/landing_1.jpg)",
+    id: 0,
+    name: "url(/assets/files/3ME_0.jpg)",
   },
   {
-    name: "url(/assets/files/landing_2.jpg)",
+    id: 1,
+    name: "url(/assets/files/3ME_1.jpg)",
   },
   {
-    name: "url(/assets/files/landing_3.jpg)",
+    id: 2,
+    name: "url(/assets/files/3ME_2.jpg)",
   },
   {
-    name: "url(/assets/files/landing_4.jpg)",
+    id: 3,
+    name: "url(/assets/files/3ME_3.jpg)",
   },
   {
-    name: "url(/assets/files/landing_5.jpg)",
+    id: 4,
+    name: "url(/assets/files/3ME_4.jpg)",
   },
   {
-    name: "url(/assets/files/3ME.jpg)",
+    id: 5,
+    name: "url(/assets/files/3ME_5.jpg)",
   },
 ];
 
@@ -32,9 +38,11 @@ lang.addEventListener("click", changeLang);
 function showMenu() {
   linksContainer.classList.add("active");
 }
+
 function closeMenu() {
   linksContainer.classList.remove("active");
 }
+
 function changeLang() {
   if (lang.textContent === "Ar") {
     lang.textContent = "En";
@@ -42,19 +50,30 @@ function changeLang() {
     lang.textContent = "Ar";
   }
 }
+
 function slideImagseLanding() {
   for (i in landingImages) {
     let singleBar = document.createElement("span");
     singleBar.className = "single_bar";
     landingSlider.appendChild(singleBar);
   }
+
+  const allBullets = document.querySelectorAll(".single_bar");
+
+  for (let j = 0; j < landingImages.length; j++) {
+    allBullets[j].id = j;
+  }
 }
 
 function changeLandingImage() {
-  let rNum = Math.floor(Math.random() * landingImages.length - 0.5);
+  const allBullets = document.querySelectorAll(".single_bar");
+  let rNum = Math.floor(Math.random() * landingImages.length);
   landing.style.backgroundImage = landingImages[rNum].name;
+  if (landingImages[rNum].id === parseInt(allBullets[rNum].id)) {
+    allBullets.forEach((item) => item.classList.remove("active"));
+    allBullets[rNum].classList.add("active");
+  }
 }
+
 slideImagseLanding();
-setInterval(() => {
-  changeLandingImage();
-}, 5000);
+setInterval(changeLandingImage, 6000);
