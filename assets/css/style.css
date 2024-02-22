@@ -184,6 +184,9 @@ a {
     }
 
     @media (max-width: 800px) {
+      .logo_container {
+        flex: 1;
+      }
       .menu_container {
         height: 100%;
         display: flex;
@@ -288,9 +291,10 @@ a {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 0 1rem;
+        margin-left: 1rem;
         gap: 1rem;
         order: -1;
+        height: 100%;
 
         .box:nth-child(1) {
           border-left: 0.125rem solid var(--bg-color-alt-1);
@@ -419,18 +423,12 @@ a {
       .text_section {
         flex-basis: 100%;
         text-align: center;
-        position: absolute;
-        left: 50%;
-        top: 25%;
-        transform: translate(-50%, -50%);
+        font-size: 1.5rem;
       }
 
       .img_section {
         order: 1;
         flex-basis: 100%;
-        position: absolute;
-        margin: 0 0.5rem;
-        bottom: 25%;
 
         img {
           max-width: 100%;
