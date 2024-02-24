@@ -28,7 +28,7 @@
 }
 /* Global components */
 body {
-  background-color: var(--bg-color-alt-1);
+  background-color: var(--bg-color);
   font-family: "Fredoka", sans-serif;
   height: 1000vh;
 }
@@ -51,14 +51,59 @@ a {
   margin-left: auto;
   margin-right: auto;
 }
+.main_heading {
+  position: relative;
+  width: 10rem;
+  text-align: center;
+  padding: 1rem;
+  margin: 0 auto 5rem;
+  font-size: 2rem;
+  color: var(--white-color);
+  background-color: var(--bg-color);
+  transition: var(--main-transition);
+  cursor: pointer;
+}
+.main_heading::before {
+  content: "";
+  position: absolute;
+  width: 105%;
+  height: 2.5rem;
+  left: -5%;
+  top: -10%;
+  background-color: var(--main-color);
+  z-index: -1;
+  transition: var(--main-transition);
+}
+.main_heading::after {
+  content: "";
+  position: absolute;
+  width: 105%;
+  height: 2.5rem;
+  left: 0%;
+  bottom: -10%;
+  background-color: var(--main-color);
+  z-index: -1;
+  transition: var(--main-transition);
+}
+.main_heading:hover {
+  background-color: var(--main-color);
+}
+.main_heading:hover::before {
+  width: 100%;
+  left: 0%;
+  top: 0%;
+}
+.main_heading:hover::after {
+  width: 100%;
+  left: 0%;
+  bottom: 0%;
+}
 /* Start header section */
 .header {
   height: 4.5rem;
   background-color: var(--main-color);
   box-shadow: 0 0 0.25rem var(--box-shadow-color);
-  position: fixed;
-  left: 0;
-  right: 0;
+  position: relative;
   z-index: 999;
   margin: 0.5rem;
   border-radius: 0.5rem;
@@ -379,13 +424,12 @@ a {
   top: 0;
   background-color: rgba(1, 13, 38, 0.75);
 }
-
+/* Start about section */
 .about {
-  padding: 10rem 0;
+  padding: 5rem 0;
 
   .container {
     position: relative;
-    color: var(--bg-color);
     z-index: 2;
     display: flex;
     align-items: center;
@@ -397,7 +441,9 @@ a {
 
     .text_section {
       flex-basis: 50%;
-      font-size: 2rem;
+      font-size: 1.7rem;
+      color: var(--white-color);
+      line-height: 1.6;
 
       .my_name {
         font-size: 3rem;
@@ -411,7 +457,7 @@ a {
       img {
         max-width: 100%;
         max-height: 100%;
-        border-radius: 2.5rem;
+        border-radius: 50%;
       }
     }
   }
@@ -429,12 +475,6 @@ a {
       .img_section {
         order: 1;
         flex-basis: 100%;
-
-        img {
-          max-width: 100%;
-          max-height: 100%;
-          border-radius: 0.5rem;
-        }
       }
     }
   }
